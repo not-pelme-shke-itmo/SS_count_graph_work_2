@@ -1,3 +1,4 @@
+
 \section{Задание 3. ДУ второго порядка}
 
 \textbf{Условие.}
@@ -7,7 +8,7 @@
 \[y^{\prime\prime} + p(t)y^\prime + q(t)y = f(t)\]
 
 \begin{enumerate}
-    \item Запишите однородное уравнение движения маятника. Выясните, почему движение описывается уравнением такого вида (каков физический смысл коэффициентовлевой части уравнения).
+    \item Запишите однородное уравнение движения маятника. Выясните, почему движение описывается уравнением такого вида (каков физический смысл коэффициентов левой части уравнения).
     \item Установите характер движения (периодический, апериодический) при данных $p(t)$ и $q(t)$.
     \item Найдите ФСР ЛОДУ и убедитесь в ее линейной независимости с помощью вронскиана.
     \item Найдите общее решение ЛОДУ.
@@ -22,7 +23,62 @@
 \vspace{10mm}
 \textbf{Решение.}
 
-It is empty but you can fill it!
+\begin{enumerate}
+    \item $y^{\prime\prime} + 4y^\prime + 5y = 0$ \\
+        Формула колебаний пружинного маятника с затуханием: \\
+        $y^{\prime\prime} + \frac{c}{m}y^\prime + \frac{k}{m}y = f(t)$ \\
+        Где $m$ - масса груза, $k$ - коэффициент упругости и $c$ - коэффициент затухания от скорости. \\
+        Значит в идеальной системе $y^{\prime\prime} + q(t)y = t^2 e^{2t}$, ускорение зависит от координаты. \\
+        В нашем случае с затуханием система должна будет стабилизироваться в нуле энергии (без движении). \\
+    \item $y^{\prime\prime} + 4y^\prime + 5y = 0$ \\
+        $\lambda^2 + 4\lambda + 5 = 0$ \\
+        $\lambda = \pm i - 2$ \\
+        $y(t) = \frac{C_1 \cos(t)}{e^{2t}} + \frac{C_2 \sin(t)}{e^{2t}}$ \\
+        Движение периодическое. \\
+    \item $y(t) = \frac{C_1 \cos(t)}{e^{2t}} + \frac{C_2 \sin(t)}{e^{2t}}$ \\
+        ФСР: $\{\frac{\cos(t)}{e^{-2t}}, \frac{\sin(t)}{e^{-2t}}\}$ \\
+        $W = \begin{vmatrix}
+            \frac{\cos(t)}{e^{2t}} & \frac{\sin(t)}{e^{2t}} \\
+            \frac{2\sin(t)}{e^{2t}} & \frac{-2\cos(t)}{e^{2t}}
+        \end{vmatrix} = \frac{-2\cos^2(t)}{e^{4t}} + \frac{2\sin^2(t)}{e^{4t}} = \frac{2\sin^2(t)-2\cos^2(t)}{e^{4t}}$ \\
+        $W \neq 0$ $\Longrightarrow$ система линейно зависима. \\
+    \item Общее решение: $y(t) = \frac{C_1 \cos(t)}{e^{2t}} + \frac{C_2 \sin(t)}{e^{2t}}$ \\
+    \item Пусть $y(t_0) = 1$, $y^\prime(t_0) = 0$ \\
+    \item Пусть $y(t_0) = 1$, $y^\prime(t_0) = 0$ \\
+        $
+        \begin{cases}
+            y(t_0) = \frac{C_1 \cos(t)}{e^{2t}} + \frac{C_2 \sin(t)}{e^{2t}} \\
+            y^\prime(t_0) = \frac{2 C_1 \sin(t)}{e^{2t}} - \frac{2 C_2 \cos(t)}{e^{2t}}
+        \end{cases}
+        \begin{cases}
+            1 = \frac{C_1 \cdot 1}{1} \\
+            0 = -\frac{2 C_2 \cdot 1}{1}
+        \end{cases}
+        \begin{cases}
+            1 = C_1 \\
+            0 = 2C_2
+        \end{cases}
+        $
+        Частное решение: $y = \frac{\cos(t)}{e^{2t}}$ \\
+    \item $y^{\prime\prime} + 4y^\prime + 5y = t^2 e^{2t}$ \\
+        $f(t)$ (в нашем случае $t^2 e^{2t}$) - действие внешних сил на систему. \\
+    \item $W_1 = \begin{vmatrix}
+            0  & \frac{\sin(t)}{e^{2t}} \\
+            t^2 e^{2t} & \frac{-2\cos(t)}{e^{2t}}
+        \end{vmatrix} = -t^2 e^{2t} \cdot \frac{\sin(t)}{e^{2t}} = -t^2 \cdot \sin(t)$\\
+        $W_2 = \begin{vmatrix}
+            \frac{\cos(t)}{e^{2t}} & 0\\
+            \frac{2\sin(t)}{e^{2t}} &t^2 e^{2t}
+        \end{vmatrix} = \frac{\cos(t)}{e^{2t}} \cdot t^2 e^{2t} = \cos(t) \cdot t^2$\\
+        $C_1^\prime(t) = \frac{W_1}{W} = \frac{-t^2 \cdot \sin(t) \cdot e^{4t}}{2\sin^2(t)-2\cos^2(t)}$ \\
+        $C_2^\prime(t) = \frac{W_2}{W} = \frac{t^2 \cdot \cos(t) \cdot e^{4t}}{2\sin^2(t)-2\cos^2(t)}$ \\
+        $\int \frac{-t^2 \cdot \sin(t) \cdot e^{4t}}{2\sin^2(t)-2\cos^2(t)} dt = $\\
+        $\int \frac{t^2 \cdot \cos(t) \cdot e^{4t}}{2\sin^2(t)-2\cos^2(t)} dt = $\\
+    \item Внешняя сила позволяет стабилизировать систему в состоянии по энергии (понял по школьному курсу физики).
 
-\textit{Ответ}: It is empty but you can fill it!
+
+\end{enumerate}
+
+
+
 

@@ -36,45 +36,64 @@
         $y(t) = \frac{C_1 \cos(t)}{e^{2t}} + \frac{C_2 \sin(t)}{e^{2t}}$ \\
         Движение периодическое. \\
     \item $y(t) = \frac{C_1 \cos(t)}{e^{2t}} + \frac{C_2 \sin(t)}{e^{2t}}$ \\
-        ФСР: $\{\frac{\cos(t)}{e^{-2t}}, \frac{\sin(t)}{e^{-2t}}\}$ \\
+        ФСР: $\{\frac{\cos(t)}{e^{2t}}, \frac{\sin(t)}{e^{2t}}\}$ \\
         $W = \begin{vmatrix}
             \frac{\cos(t)}{e^{2t}} & \frac{\sin(t)}{e^{2t}} \\
-            \frac{2\sin(t)}{e^{2t}} & \frac{-2\cos(t)}{e^{2t}}
-        \end{vmatrix} = \frac{-2\cos^2(t)}{e^{4t}} + \frac{2\sin^2(t)}{e^{4t}} = \frac{2\sin^2(t)-2\cos^2(t)}{e^{4t}}$ \\
-        $W \neq 0$ $\Longrightarrow$ система линейно зависима. \\
+            -\frac{e^{2t}\sin(t) + 2e^{2t}\cos(t)}{e^{4t}} & \frac{e^{2t}\cos(t) - 2e^{2t}\sin(t)}{e^{4t}}
+        \end{vmatrix} = \frac{e^{2t}\cos^2(t) - e^{2t}\sin(2t)}{e^{6t}} + \frac{e^{2t}\sin^2(t) + e^{2t}\sin(2t)}{e^{6t}} = \frac{e^{2t}}{e^{6t}} = e^{-4t}$ \\
+        $W \neq 0$ $\Longrightarrow$ система линейно независима по теореме Коши. \\
     \item Общее решение: $y(t) = \frac{C_1 \cos(t)}{e^{2t}} + \frac{C_2 \sin(t)}{e^{2t}}$ \\
-    \item Пусть $y(t_0) = 1$, $y^\prime(t_0) = 0$ \\
-    \item Пусть $y(t_0) = 1$, $y^\prime(t_0) = 0$ \\
+    \item Пусть $y(t_0) = 1$, $y^\prime(t_0) = 0$
+
         $
         \begin{cases}
             y(t_0) = \frac{C_1 \cos(t)}{e^{2t}} + \frac{C_2 \sin(t)}{e^{2t}} \\
-            y^\prime(t_0) = \frac{2 C_1 \sin(t)}{e^{2t}} - \frac{2 C_2 \cos(t)}{e^{2t}}
-        \end{cases}
-        \begin{cases}
-            1 = \frac{C_1 \cdot 1}{1} \\
-            0 = -\frac{2 C_2 \cdot 1}{1}
+            y^\prime(t_0) = -\frac{C_1 (e^{2t}\sin(t) + 2e^{2t}\cos (t)) }{e^{2t}} + \frac{C_2 ( e^{2t} \cos(t) - 2e^{2t} \sin(t))}{e^{2t}}
         \end{cases}
         \begin{cases}
             1 = C_1 \\
-            0 = 2C_2
+            0 = C_2 - 2 C_1
+        \end{cases}
+        \begin{cases}
+            1 = C_1 \\
+            2 = C_2
         \end{cases}
         $
-        Частное решение: $y = \frac{\cos(t)}{e^{2t}}$ \\
+
+        	Частное решение ЛОДУ: $y = \frac{\cos(t)}{e^{2t}} + \frac{2\sin(t)}{e^{2t}}$ 
+
+	\begin{center}
+	        \includegraphics[height=60mm]{images/3_5}
+	\end{center}	
+
+	Из точек пересечения с осью абсцисс видим переодичность движения.
+
     \item $y^{\prime\prime} + 4y^\prime + 5y = t^2 e^{2t}$ \\
         $f(t)$ (в нашем случае $t^2 e^{2t}$) - действие внешних сил на систему. \\
     \item $W_1 = \begin{vmatrix}
-            0  & \frac{\sin(t)}{e^{2t}} \\
-            t^2 e^{2t} & \frac{-2\cos(t)}{e^{2t}}
+            0 & \frac{\sin(t)}{e^{2t}} \\
+            t^2e^{2t} & \frac{e^{2t}\cos(t) - 2e^{2t}\sin(t)}{e^{4t}}
         \end{vmatrix} = -t^2 e^{2t} \cdot \frac{\sin(t)}{e^{2t}} = -t^2 \cdot \sin(t)$\\
-        $W_2 = \begin{vmatrix}
-            \frac{\cos(t)}{e^{2t}} & 0\\
-            \frac{2\sin(t)}{e^{2t}} &t^2 e^{2t}
+        $W_2 = W = \begin{vmatrix}
+            \frac{\cos(t)}{e^{2t}} & 0 \\
+            -\frac{e^{2t}\sin(t) + 2e^{2t}\cos(t)}{e^{4t}} & t^2e^{2t}
         \end{vmatrix} = \frac{\cos(t)}{e^{2t}} \cdot t^2 e^{2t} = \cos(t) \cdot t^2$\\
-        $C_1^\prime(t) = \frac{W_1}{W} = \frac{-t^2 \cdot \sin(t) \cdot e^{4t}}{2\sin^2(t)-2\cos^2(t)}$ \\
-        $C_2^\prime(t) = \frac{W_2}{W} = \frac{t^2 \cdot \cos(t) \cdot e^{4t}}{2\sin^2(t)-2\cos^2(t)}$ \\
-        $\int \frac{-t^2 \cdot \sin(t) \cdot e^{4t}}{2\sin^2(t)-2\cos^2(t)} dt = $\\
-        $\int \frac{t^2 \cdot \cos(t) \cdot e^{4t}}{2\sin^2(t)-2\cos^2(t)} dt = $\\
-    \item Внешняя сила позволяет стабилизировать систему в состоянии по энергии (понял по школьному курсу физики).
+        $C_1^\prime(t) = \frac{W_1}{W} = -t^2\sin(t)e^{4t}$ \\
+        $C_2^\prime(t) = \frac{W_2}{W} = t^2\cos(t)e^{4t}$ 
+
+        $C_1(t) = \int -t^2\sin(t)e^{4t}\ dt = \frac{e^{4 t} ((94 - 272 t + 289 t^2) \cos(t) - 2 (52 - 255 t + 578 t^2) \sin(t))}{4913}$
+
+        $C_2(t) = \int t^2\cos(t)e^{4t}\ dt =\frac{e^{4 t} (2 (52 - 255 t + 578 t^2) \cos(t) + (94 - 272 t + 289 t^2) \sin(t)))}{4913}$
+
+	Общее решение ЛНДУ: $y(t) = \frac{C_1\cos(t)}{e^{2t}} + \frac{C_2\sin(t)}{e^{2t}} + \frac{1}{17}e^{2t}t^2 - \frac{16}{289}e^{2t}t + \frac{94}{4913}e^{2t}$. 
+
+Частное решение ЛНДУ: $y(t) = \frac{4819}{4913} \frac{\cos(t)}{e^{2t}} + \frac{9722}{4913} \frac{\sin(t)}{e^{2t}} + \frac{1}{17}e^{2t}t^2 - \frac{16}{289}e^{2t}t + \frac{94}{4913}e^{2t}$
+
+	\begin{center}
+	        \includegraphics[height=60mm]{images/3_7}
+	\end{center}	
+
+    \item Внешняя сила $f(t)$ слишком сильно действует на маятник, так что он не будет колебаться, а будет крутиться.
 
 
 \end{enumerate}
